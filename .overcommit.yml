@@ -1,0 +1,47 @@
+PreCommit:
+  RuboCop: # Style Check
+    enabled: true
+    command: ["bundle", "exec", "rubocop", "-c", "./.rubocop.yml"]
+    on_warn: fail
+  BundleInstall: # Ensure gem are installed
+    enabled: true
+    on_warn: fail
+
+  RailsBestPractices: # Check best practices
+    enabled: true
+    command:
+      [
+        "bundle",
+        "exec",
+        "rails_best_practices",
+        "--config",
+        "./..rails_best_practices.yml",
+        ".",
+      ]
+    on_warn: pass
+
+  Fasterer: # Check performance
+    enabled: true
+
+  Brakeman: # Security Check
+    enabled: true
+    command: ["bundle", "exec", "brakeman"]
+    on_warn: fail
+
+  YamlSyntax: # YAML Check
+    enabled: true
+    on_warn: fail
+
+  RailsSchemaUpToDate: # Migration Check
+    enabled: true
+    on_warn: fail
+
+  HardTabs: # Checks for hard tabs in files
+    enabled: true
+    on_warn: fail
+
+PrePush:
+  RSpec: # Unit & Integration TEST
+    enabled: true
+    command: ["bundle", "exec", "rspec", "spec"]
+    on_warn: fail

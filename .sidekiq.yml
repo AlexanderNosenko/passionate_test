@@ -1,0 +1,11 @@
+---
+:concurrency: 1
+:queues:
+  - default
+  - mailers
+
+  # Related to config.active_job.queue_name_prefix
+  - passionate_task_development_default
+  - passionate_task_development_mailers
+  - passionate_task_test_default
+  - passionate_task_test_mailers

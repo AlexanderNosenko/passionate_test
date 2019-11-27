@@ -1,0 +1,22 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  host: <%= ENV["POSTGRES_HOST"] %>
+  username: <%= ENV["POSTGRES_USER"] || 'postgres' %>
+  password: <%= ENV["POSTGRES_PASSWORD"] %>
+
+development:
+  <<: *default
+  database: passionate_task_development
+
+test:
+  <<: *default
+  database: passionate_task_test
+
+staging:
+  <<: *default
+  database: <%= ENV["POSTGRES_NAME"] || 'passionate_task_staging' %>
+
+production:
+  <<: *default
+  database: <%= ENV["POSTGRES_NAME"] || 'passionate_task_production' %>

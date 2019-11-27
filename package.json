@@ -1,0 +1,19 @@
+{
+  "name": "passionate_test",
+  "version": "1.0.0",
+  "main": "index.js",
+  "directories": {
+    "doc": "doc",
+    "lib": "lib",
+    "test": "test"
+  },
+  "dependencies": {
+    "api-spec-converter": "^2.10.1",
+    "envsub": "^3.0.9",
+    "serve": "^11.2.0",
+    "swagger-spec-validator": "^4.0.1"
+  },
+  "scripts": {
+    "convert_swagger_to_openapi": "api-spec-converter --from=swagger_2 --to=openapi_3 --order=alpha  ./swagger/v2/swagger.json > ./swagger/v2/swagger_openapi3.json"
+  }
+}
