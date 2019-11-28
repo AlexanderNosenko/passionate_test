@@ -46,7 +46,13 @@ RSpec.describe 'Verticals', type: :request, rswag: true do
       end
 
       response 422, :unprocessable_entity do
-        before { params[:vertical][:name] = '' }
+        let(:params) do
+          {
+            vertical: {
+              name: ''
+            }
+          }
+        end
 
         schema(ModuleScaffold::Descriptors::ValidationErrorDescriptor.schema)
         run_test!
@@ -92,7 +98,13 @@ RSpec.describe 'Verticals', type: :request, rswag: true do
       end
 
       response 422, :unprocessable_entity do
-        before { params[:vertical][:name] = '' }
+        let(:params) do
+          {
+            vertical: {
+              name: ''
+            }
+          }
+        end
 
         schema(ModuleScaffold::Descriptors::ValidationErrorDescriptor.schema)
 

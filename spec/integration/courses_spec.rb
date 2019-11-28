@@ -57,11 +57,25 @@ RSpec.describe 'Courses', type: :request, rswag: true do
       end
 
       response 422, :unprocessable_entity do
-        before { params[:course][:name] = '' }
+        let(:params) do
+          {
+            course: {
+              name: '',
+              author: '',
+              category_id: '',
+              state: ''
+            }
+          }
+        end
 
         schema(ModuleScaffold::Descriptors::ValidationErrorDescriptor.schema)
 
-        run_test!
+        run_test! do
+          expect_json('errors.?.source.pointer', '/data/attributes/name')
+          expect_json('errors.?.source.pointer', '/data/attributes/category')
+          expect_json('errors.?.source.pointer', '/data/attributes/state')
+          expect_json('errors.*.detail', 'blank')
+        end
       end
     end
   end
@@ -108,13 +122,24 @@ RSpec.describe 'Courses', type: :request, rswag: true do
       end
 
       response 422, :unprocessable_entity do
-        before { params[:course][:name] = '' }
+        let(:params) do
+          {
+            course: {
+              name: '',
+              author: '',
+              category_id: '',
+              state: ''
+            }
+          }
+        end
 
         schema(ModuleScaffold::Descriptors::ValidationErrorDescriptor.schema)
 
         run_test! do
-          expect_json('errors.0.source.pointer', '/data/attributes/name')
-          expect_json('errors.0.detail', 'blank')
+          expect_json('errors.?.source.pointer', '/data/attributes/name')
+          expect_json('errors.?.source.pointer', '/data/attributes/category')
+          expect_json('errors.?.source.pointer', '/data/attributes/state')
+          expect_json('errors.*.detail', 'blank')
         end
       end
     end

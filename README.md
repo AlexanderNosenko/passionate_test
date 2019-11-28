@@ -14,3 +14,7 @@ foo@bar:~$ gem install foreman
 ```console
 foo@bar:~$ foreman start -f Procfile.dev
 ```
+* Run the docs
+```console
+foo@bar:~$ ./generate_api_docs.sh
+```
