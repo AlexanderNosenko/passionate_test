@@ -1,6 +1,5 @@
 require 'pundit/matchers'
 require 'sidekiq/testing'
-require "test_prof/recipes/rspec/let_it_be"
 require 'database_cleaner'
 
 Pundit::Matchers.configure do |config|
@@ -50,6 +49,8 @@ RSpec.configure do |config|
       example.run
     end
   end
+
+  # Clean Sidekiq ques
   config.before(:each) do
     Sidekiq::Worker.clear_all
   end
@@ -89,7 +90,7 @@ RSpec.configure do |config|
   # order dependency and want to debug it, you can fix the order by providing
   # the seed, which is printed after each run.
   #     --seed 1234
-  config.order = :random
+  # config.order = :random # Causes rswag specs to fail cause of routing error
 
   # Seed global randomization in this process using the `--seed` CLI option.
   # Setting this allows you to use `--seed` to deterministically reproduce

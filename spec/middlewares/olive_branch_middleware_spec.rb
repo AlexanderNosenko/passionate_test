@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe OliveBranch::Middleware, type: :request do
-  class TestController < ::ApplicationController
+  class TestController < ActionController::API
 
     def test
       egg = params.require(:snake_case).permit(:first_egg)
