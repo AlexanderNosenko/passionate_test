@@ -1,8 +1,8 @@
 GIT
   remote: https://github.com/AlexanderNosenko/module_scaffold.git
-  revision: 99b5abb01a425db0e8a44c632497804a7182a973
+  revision: 0796caee3bbcd9ecf790013a9829689fbb750b0e
   specs:
-    module_scaffold (0.2.3)
+    module_scaffold (0.2.4)
       pundit
       rspec-rails
       rswag-specs
