@@ -2,7 +2,7 @@ module Stateful
   extend ActiveSupport::Concern
 
   included do
-    enum status: {
+    enum state: {
       inactive: 0,
       active: 1
     }
