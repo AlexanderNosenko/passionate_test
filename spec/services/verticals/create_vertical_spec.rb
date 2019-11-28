@@ -9,6 +9,10 @@ RSpec.describe ::Verticals::CreateVertical do
   end
 
   describe '#call' do
+    context 'notifications' do
+      it_should_behave_like 'emailable', record_class: Vertical
+    end
+
     context 'with valid params' do
       it 'creates vertical' do
         expect { subject }.to change { ::Vertical.count }.by(1)

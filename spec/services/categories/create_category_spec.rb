@@ -1,4 +1,5 @@
 require 'rails_helper'
+require_relative '../concerns/emailable'
 
 RSpec.describe ::Categories::CreateCategory do
   subject { described_class.new(ActionController::Parameters.new(params)).call }
@@ -15,6 +16,10 @@ RSpec.describe ::Categories::CreateCategory do
   end
 
   describe '#call' do
+    context 'notifications' do
+      it_should_behave_like 'emailable', record_class: Category
+    end
+
     context 'with valid params' do
       it 'creates category' do
         expect { subject }.to change { ::Category.count }.by(1)

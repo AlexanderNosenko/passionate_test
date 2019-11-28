@@ -1,12 +1,15 @@
 module Categories
   class CreateCategory < ApplicationService
 
+    include Emailable
+
     def initialize(params)
       @params = params
     end
 
     def call
       create_category!
+      send_notification_email(category)
       success(category)
     rescue ActiveRecord::RecordInvalid => e
       failure(ModelValidationError.new(e.record))

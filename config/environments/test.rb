@@ -34,8 +34,6 @@ Rails.application.configure do
   # Mailer config
   config.action_mailer.delivery_method = :test
 
-  config.active_job.queue_adapter = :sidekiq
-
   # Print deprecation notices to the stderr.
   config.active_support.deprecation = :stderr
 

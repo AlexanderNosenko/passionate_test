@@ -17,6 +17,10 @@ RSpec.describe ::Courses::CreateCourse do
   end
 
   describe '#call' do
+    context 'notifications' do
+      it_should_behave_like 'emailable', record_class: Course
+    end
+
     context 'with valid params' do
       it 'creates course' do
         expect { subject }.to change { ::Course.count }.by(1)
