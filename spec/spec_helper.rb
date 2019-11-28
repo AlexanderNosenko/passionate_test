@@ -1,12 +1,16 @@
 require 'pundit/matchers'
 require 'sidekiq/testing'
 require 'database_cleaner'
+require 'module_scaffold'
 
 Pundit::Matchers.configure do |config|
   config.user_alias = :session
 end
 
 Sidekiq::Testing.fake!
+
+# Autoload rswag descriptors
+Dir[File.expand_path('descriptors/**/*.rb', __dir__)].each { |f| require f }
 
 RSpec.configure do |config|
   # Stop processing specs upon first failure

@@ -5,6 +5,7 @@ require File.expand_path('../config/environment', __dir__)
 abort("The Rails environment is running in production mode!") if Rails.env.production?
 require 'rspec/rails'
 require "test_prof/recipes/rspec/let_it_be"
+require 'module_scaffold'
 
 # For multiple reasons better include in specific files
 # Dir[Rails.root.join('spec', 'support', '**', '*.rb')].each { |f| require f }
@@ -23,16 +24,7 @@ RSpec.configure do |config|
   config.filter_rails_from_backtrace!
 
   config.include FactoryBot::Syntax::Methods
-  # config.include AssertionHelpers
-  # config.include AuthenticationHelper, type: :integration
-
-  # config.include ApplicationHelper, type: :request
-  # config.include ApplicationHelper, type: :controller
-  # config.include ApplicationHelper, type: :service
-
-  # config.include SerializerHelper, type: :serializer
-  # config.extend RswagHelper, rswag: true
-  # config.include PolicyHelper, policy: true
+  config.include ModuleScaffold::SpecSupport::SerializerHelpers, type: :serializer
 
   config.after do |example|
     if example.metadata[:rswag]
