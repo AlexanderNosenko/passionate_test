@@ -1,5 +1,9 @@
 # Passionate Test
 
+#### Dependencies
+* Redis
+* PostgresQL
+
 ### Deploy
 * Copy database.yml
 ```console
