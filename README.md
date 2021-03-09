@@ -3,6 +3,8 @@
 Some information about merging.
 Developed using my [module_scaffold](https://github.com/AlexanderNosenko/module_scaffold), `Pundit`, `FastJson`, and service based style.
 
+
+Some other hotfix
 #### Dependencies
 * Redis
 * PostgresQL
