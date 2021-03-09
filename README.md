@@ -1,5 +1,6 @@
 # Passionate Test (Update hotifx)
 
+Some information about merging.
 Developed using my [module_scaffold](https://github.com/AlexanderNosenko/module_scaffold), `Pundit`, `FastJson`, and service based style.
 
 #### Dependencies
