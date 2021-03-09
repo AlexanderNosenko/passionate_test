@@ -1,4 +1,4 @@
-# Passionate Test
+# Passionate Test (Update hotifx)
 
 Developed using my [module_scaffold](https://github.com/AlexanderNosenko/module_scaffold), `Pundit`, `FastJson`, and service based style.
 
