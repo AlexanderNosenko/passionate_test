@@ -1,4 +1,4 @@
-# Passionate Test (Update)
+# Passionate Test (Update 2)
 
 Developed using my [module_scaffold](https://github.com/AlexanderNosenko/module_scaffold), `Pundit`, `FastJson`, and service based style.
 
